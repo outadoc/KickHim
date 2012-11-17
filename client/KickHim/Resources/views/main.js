@@ -49,7 +49,7 @@
 
 	win.add(scrollView);
 
-	var b_close = Ti.UI.createButton({
+	var b_close_mc = Ti.UI.createButton({
 		title: 'Close Minecraft',
 		cmd: 'close_mc',
 		left: 10,
@@ -135,7 +135,7 @@
 		top: 10
 	});
 
-	b_close.addEventListener('click', prepareCmdSend);
+	b_close_mc.addEventListener('click', prepareCmdSend);
 	b_shutdown.addEventListener('click', prepareCmdSend);
 	b_shutdown_timed.addEventListener('click', prepareCmdSend);
 	b_shutdown_cancel.addEventListener('click', prepareCmdSend);
@@ -155,7 +155,7 @@
 		});
 	});
 
-	scrollView.add(b_close);
+	scrollView.add(b_close_mc);
 	scrollView.add(b_shutdown);
 	scrollView.add(b_shutdown_timed);
 	scrollView.add(b_shutdown_cancel);
