@@ -89,7 +89,7 @@
 	});
 
 	var txtfield_custom_cmd = Ti.UI.createTextField({
-		hintText: 'taskkill /im name',
+		hintText: 'defrag',
 		left: 10,
 		right: 10,
 		width: Ti.UI.FILL,
