@@ -2,7 +2,7 @@
 	var win = Ti.UI.currentWindow;
 
 	var txtfield_ip = Ti.UI.createTextField({
-		hintText: 'Adresse IP de la cible',
+		hintText: 'IP address of the target',
 		left: 10,
 		right: 10,
 		top: 10,
@@ -21,7 +21,7 @@
 
 	var lbl_title = Ti.UI.createLabel({
 		color: '#000000',
-		text: 'Choisis une sentence:',
+		text: 'Choose a punishment:',
 		top: 20,
 		left: 10,
 		width: Ti.UI.FILL
@@ -38,7 +38,7 @@
 	win.add(scrollView);
 
 	var b_close = Ti.UI.createButton({
-		title: 'Fermer Minecraft',
+		title: 'Close Minecraft',
 		cmd: 'close_mc',
 		left: 10,
 		right: 10,
@@ -48,7 +48,7 @@
 	});
 
 	var b_shutdown = Ti.UI.createButton({
-		title: 'Éteindre l\'ordinateur',
+		title: 'Shutdown computer',
 		cmd: 'shutdown',
 		left: 10,
 		right: 10,
@@ -58,7 +58,7 @@
 	});
 
 	var b_shutdown_timed = Ti.UI.createButton({
-		title: 'Éteindre l\'ordinateur dans 30 sec',
+		title: 'Shutdown in 30 seconds',
 		cmd: 'shutdown_timed',
 		left: 10,
 		right: 10,
@@ -68,7 +68,7 @@
 	});
 
 	var b_shutdown_cancel = Ti.UI.createButton({
-		title: 'Annuler l\'extinction',
+		title: 'Cancel shutdown',
 		cmd: 'shutdown_cancel',
 		left: 10,
 		right: 10,
@@ -78,7 +78,7 @@
 	});
 
 	var b_close_session = Ti.UI.createButton({
-		title: 'Fermer la session',
+		title: 'Close user session',
 		cmd: 'close_session',
 		left: 10,
 		right: 10,
@@ -142,7 +142,7 @@
 			},
 			error: function(e) {
 				Ti.API.info('Error (' + e.errorCode + '): ' + e.error);
-				alert('Erreur ' + e.errorCode + ': ' + e.error + '\nHôte: ' + this.host + ':' + this.port);
+				alert('Error ' + e.errorCode + ': ' + e.error + '\nHost: ' + this.host + ':' + this.port);
 			},
 		});
 
@@ -150,7 +150,7 @@
 
 		function writeCallback(e) {
 			Ti.API.info('Successfully wrote \'' + cmd + '\' to socket.');
-			alert('Succès !\nCommande: ' + cmd);
+			alert('Success !\nCommand: ' + cmd);
 			socket.close();
 		}
 
