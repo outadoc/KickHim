@@ -19,6 +19,7 @@
 
 	win.add(txtfield_ip);
 	
+	//instanciate the separators
 	line_def = {
 		height: 1,
 		width: Ti.UI.FILL,
@@ -30,6 +31,7 @@
 	var view_line1 = Ti.UI.createView(line_def);
 	var view_line2 = Ti.UI.createView(line_def);
 
+	//instanciate the title
 	var lbl_title = Ti.UI.createLabel({
 		color: '#000000',
 		text: 'Choose a punishment:',
@@ -40,6 +42,7 @@
 
 	win.add(lbl_title);
 
+	//the scrollview that will contain our controls
 	var scrollView = Ti.UI.createScrollView({
 		top: 5,
 		bottom: 10,
@@ -49,6 +52,7 @@
 
 	win.add(scrollView);
 
+	//all the buttons that have to do with power
 	var b_shutdown = Ti.UI.createButton({
 		title: 'Shutdown computer',
 		cmd: 'shutdown',
@@ -89,6 +93,7 @@
 		top: 10
 	});
 
+	//all the controls that have to do with closing programs
 	var txtfield_kill_custom_prgm = Ti.UI.createTextField({
 		hintText: 'mumble.exe',
 		left: 10,
@@ -117,6 +122,7 @@
 		top: 5
 	});
 	
+	//the controls that handle executing a custom command
 	var txtfield_custom_cmd = Ti.UI.createTextField({
 		hintText: 'defrag',
 		left: 10,
@@ -135,6 +141,7 @@
 		top: 10
 	});
 
+	//add event listeners to the controls and bind them to the correct action
 	b_shutdown.addEventListener('click', prepareCmdSend);
 	b_shutdown_timed.addEventListener('click', prepareCmdSend);
 	b_shutdown_cancel.addEventListener('click', prepareCmdSend);
@@ -155,22 +162,31 @@
 		});
 	});
 
+	//add all the controls to the scroll view
 	scrollView.add(b_shutdown);
 	scrollView.add(b_shutdown_timed);
 	scrollView.add(b_shutdown_cancel);
 	scrollView.add(b_close_session);
-	/**/ scrollView.add(view_line1);
+	
+	//separator
+	scrollView.add(view_line1);
+	
 	scrollView.add(txtfield_kill_custom_prgm);
 	scrollView.add(b_kill_custom_prgm);
 	scrollView.add(b_close_mc);
-	/**/ scrollView.add(view_line2);
+	
+	//separator
+	scrollView.add(view_line2);
+	
 	scrollView.add(txtfield_custom_cmd);
 	scrollView.add(b_custom_cmd);
 
+	//this basically links the command and the ip (it's just cleaner than putting it in the event listeners)
 	function prepareCmdSend(e) {
 		sendCmd(e.source.cmd, txtfield_ip.value);
 	}
 	
+	//the function that will actually connect to the server and send it the command
 	function sendCmd(cmd, ip) {
 		var socket = Ti.Network.Socket.createTCP({
 			host: ip,
