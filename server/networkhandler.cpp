@@ -36,9 +36,9 @@ void NetworkHandler::executeCommand(string cmd)
     if(cmd == "close_mc") {
         winCommand = "taskkill /im javaw.exe";
     } else if(cmd == "shutdown") {
-        winCommand = "shutdown /s /f /c \"On a prévenu !\"";
+        winCommand = "shutdown /s /f";
     } else if(cmd == "shutdown_timed") {
-        winCommand = "shutdown /s /t 30 /f /c \"On a prévenu !\"";
+        winCommand = "shutdown /s /t 30 /f";
     } else if(cmd == "shutdown_cancel") {
         winCommand = "shutdown /a";
     } else if(cmd == "close_session") {
