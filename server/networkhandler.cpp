@@ -34,9 +34,9 @@ void NetworkHandler::executeCommand(string cmd)
     string winCommand;
 
     if(cmd == "close_mc") {
-        winCommand = "taskkill /im javaw.exe";
+        winCommand = "taskkill /F /im javaw.exe";
     } else if(cmd == "shutdown") {
-        winCommand = "shutdown /s /f";
+        winCommand = "shutdown /s /t 0 /f";
     } else if(cmd == "shutdown_timed") {
         winCommand = "shutdown /s /t 30 /f";
     } else if(cmd == "shutdown_cancel") {
@@ -44,7 +44,7 @@ void NetworkHandler::executeCommand(string cmd)
     } else if(cmd == "close_session") {
         winCommand = "shutdown /l";
     } else if(cmd.find("custom_cmd") != string::npos) {
-        winCommand = cmd.substr(cmd.find('§'));
+        winCommand = cmd.substr(cmd.find('§') + 1);
     } else {
         return;
     }
