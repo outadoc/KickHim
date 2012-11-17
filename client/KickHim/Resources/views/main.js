@@ -105,6 +105,24 @@
 		height: 45,
 		top: 10
 	});
+	
+	var txtfield_kill_custom_prgm = Ti.UI.createTextField({
+		hintText: 'mumble.exe',
+		left: 10,
+		right: 10,
+		width: Ti.UI.FILL,
+		height: 45,
+		top: 10
+	});
+
+	var b_kill_custom_prgm = Ti.UI.createButton({
+		title: 'Kill custom program',
+		left: 10,
+		right: 10,
+		width: Ti.UI.FILL,
+		height: 45,
+		top: 10
+	});
 
 	b_close.addEventListener('click', prepareCmdSend);
 	b_shutdown.addEventListener('click', prepareCmdSend);
@@ -118,6 +136,13 @@
 			}
 		});
 	});
+	b_kill_custom_prgm.addEventListener('click', function(e) {
+		prepareCmdSend({
+			source: {
+				cmd: 'custom_cmd§taskkill /F /im ' + txtfield_kill_custom_prgm.value
+			}
+		});
+	});
 
 	scrollView.add(b_close);
 	scrollView.add(b_shutdown);
@@ -126,6 +151,8 @@
 	scrollView.add(b_close_session);
 	scrollView.add(txtfield_custom_cmd);
 	scrollView.add(b_custom_cmd);
+	scrollView.add(txtfield_kill_custom_prgm);
+	scrollView.add(b_kill_custom_prgm);
 
 	function prepareCmdSend(e) {
 		sendCmd(e.source.cmd, txtfield_ip.value);
