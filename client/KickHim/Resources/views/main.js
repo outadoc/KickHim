@@ -88,7 +88,7 @@
 	});
 
 	var txtfield_custom_cmd = Ti.UI.createTextField({
-		hintText: 'kill \IM test',
+		hintText: 'taskkill /im name',
 		left: 10,
 		right: 10,
 		width: Ti.UI.FILL,
