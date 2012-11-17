@@ -113,7 +113,7 @@
 	b_custom_cmd.addEventListener('click', function(e) {
 		sendCommand({
 			source: {
-				cmd: txtfield_custom_cmd.getValue()
+				cmd: 'custom_cmd§' + txtfield_custom_cmd.getValue()
 			}
 		});
 	});
