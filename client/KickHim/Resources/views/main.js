@@ -49,16 +49,6 @@
 
 	win.add(scrollView);
 
-	var b_close_mc = Ti.UI.createButton({
-		title: 'Close Minecraft',
-		cmd: 'close_mc',
-		left: 10,
-		right: 10,
-		width: Ti.UI.FILL,
-		height: 45,
-		top: 5
-	});
-
 	var b_shutdown = Ti.UI.createButton({
 		title: 'Shutdown computer',
 		cmd: 'shutdown',
@@ -117,6 +107,16 @@
 		top: 10
 	});
 	
+	var b_close_mc = Ti.UI.createButton({
+		title: 'Close Minecraft',
+		cmd: 'close_mc',
+		left: 10,
+		right: 10,
+		width: Ti.UI.FILL,
+		height: 45,
+		top: 5
+	});
+	
 	var txtfield_custom_cmd = Ti.UI.createTextField({
 		hintText: 'defrag',
 		left: 10,
@@ -135,7 +135,6 @@
 		top: 10
 	});
 
-	b_close_mc.addEventListener('click', prepareCmdSend);
 	b_shutdown.addEventListener('click', prepareCmdSend);
 	b_shutdown_timed.addEventListener('click', prepareCmdSend);
 	b_shutdown_cancel.addEventListener('click', prepareCmdSend);
@@ -147,6 +146,7 @@
 			}
 		});
 	});
+	b_close_mc.addEventListener('click', prepareCmdSend);
 	b_custom_cmd.addEventListener('click', function(e) {
 		prepareCmdSend({
 			source: {
@@ -155,7 +155,6 @@
 		});
 	});
 
-	scrollView.add(b_close_mc);
 	scrollView.add(b_shutdown);
 	scrollView.add(b_shutdown_timed);
 	scrollView.add(b_shutdown_cancel);
@@ -163,6 +162,7 @@
 	/**/ scrollView.add(view_line1);
 	scrollView.add(txtfield_kill_custom_prgm);
 	scrollView.add(b_kill_custom_prgm);
+	scrollView.add(b_close_mc);
 	/**/ scrollView.add(view_line2);
 	scrollView.add(txtfield_custom_cmd);
 	scrollView.add(b_custom_cmd);
