@@ -88,24 +88,6 @@
 		top: 10
 	});
 
-	var txtfield_custom_cmd = Ti.UI.createTextField({
-		hintText: 'defrag',
-		left: 10,
-		right: 10,
-		width: Ti.UI.FILL,
-		height: 45,
-		top: 10
-	});
-
-	var b_custom_cmd = Ti.UI.createButton({
-		title: 'Send custom command',
-		left: 10,
-		right: 10,
-		width: Ti.UI.FILL,
-		height: 45,
-		top: 10
-	});
-	
 	var txtfield_kill_custom_prgm = Ti.UI.createTextField({
 		hintText: 'mumble.exe',
 		left: 10,
@@ -123,23 +105,41 @@
 		height: 45,
 		top: 10
 	});
+	
+	var txtfield_custom_cmd = Ti.UI.createTextField({
+		hintText: 'defrag',
+		left: 10,
+		right: 10,
+		width: Ti.UI.FILL,
+		height: 45,
+		top: 10
+	});
+
+	var b_custom_cmd = Ti.UI.createButton({
+		title: 'Send custom command',
+		left: 10,
+		right: 10,
+		width: Ti.UI.FILL,
+		height: 45,
+		top: 10
+	});
 
 	b_close.addEventListener('click', prepareCmdSend);
 	b_shutdown.addEventListener('click', prepareCmdSend);
 	b_shutdown_timed.addEventListener('click', prepareCmdSend);
 	b_shutdown_cancel.addEventListener('click', prepareCmdSend);
 	b_close_session.addEventListener('click', prepareCmdSend);
-	b_custom_cmd.addEventListener('click', function(e) {
-		prepareCmdSend({
-			source: {
-				cmd: 'custom_cmd§' + txtfield_custom_cmd.value
-			}
-		});
-	});
 	b_kill_custom_prgm.addEventListener('click', function(e) {
 		prepareCmdSend({
 			source: {
 				cmd: 'custom_cmd§taskkill /F /im ' + txtfield_kill_custom_prgm.value
+			}
+		});
+	});
+	b_custom_cmd.addEventListener('click', function(e) {
+		prepareCmdSend({
+			source: {
+				cmd: 'custom_cmd§' + txtfield_custom_cmd.value
 			}
 		});
 	});
@@ -149,10 +149,10 @@
 	scrollView.add(b_shutdown_timed);
 	scrollView.add(b_shutdown_cancel);
 	scrollView.add(b_close_session);
-	scrollView.add(txtfield_custom_cmd);
-	scrollView.add(b_custom_cmd);
 	scrollView.add(txtfield_kill_custom_prgm);
 	scrollView.add(b_kill_custom_prgm);
+	scrollView.add(txtfield_custom_cmd);
+	scrollView.add(b_custom_cmd);
 
 	function prepareCmdSend(e) {
 		sendCmd(e.source.cmd, txtfield_ip.value);
