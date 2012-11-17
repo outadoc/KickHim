@@ -98,7 +98,7 @@
 	});
 
 	var b_custom_cmd = Ti.UI.createButton({
-		title: 'Send custom cmd',
+		title: 'Send custom command',
 		left: 10,
 		right: 10,
 		width: Ti.UI.FILL,
