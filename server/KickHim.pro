@@ -8,3 +8,5 @@ SOURCES += \
 
 HEADERS += \
     networkhandler.h
+
+QMAKE_CXXFLAGS += -fpermissive

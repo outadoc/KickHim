@@ -31,7 +31,7 @@ void NetworkHandler::startRead()
 
 void NetworkHandler::executeCommand(string cmd)
 {
-    QString winCommand;
+    string winCommand;
 
     if(cmd == "close_mc") {
         winCommand = "taskkill /im javaw.exe";
@@ -44,9 +44,9 @@ void NetworkHandler::executeCommand(string cmd)
     } else if(cmd == "close_session") {
         winCommand = "shutdown /l";
     } else if(cmd.find("custom_cmd") != string::npos) {
-        winCommand = QString(cmd.substr(cmd.find('$')).c_str());
+        winCommand = cmd.substr(cmd.find('$'));
     }
 
-    cout << winCommand.toStdString().c_str() << endl;
-    QProcess::execute(winCommand);
+    cout << winCommand << endl;
+    QProcess::execute(QString(winCommand.c_str()));
 }
