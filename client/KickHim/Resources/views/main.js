@@ -30,9 +30,10 @@
 	win.add(lbl_title);
 
 	var scrollView = Ti.UI.createScrollView({
-		contentHeight: 'auto',
-		top: 10,
-		layout: 'vertical'
+		top: 5,
+		bottom: 10,
+		layout: 'vertical',
+		contentHeight: 'auto'
 	});
 
 	win.add(scrollView);
@@ -44,7 +45,7 @@
 		right: 10,
 		width: Ti.UI.FILL,
 		height: 45,
-		top: 20
+		top: 5
 	});
 
 	var b_shutdown = Ti.UI.createButton({
