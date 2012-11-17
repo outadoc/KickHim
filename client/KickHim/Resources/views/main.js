@@ -28,13 +28,13 @@
 	});
 
 	win.add(lbl_title);
-	
+
 	var scrollView = Ti.UI.createScrollView({
 		contentHeight: 'auto',
 		top: 10,
 		layout: 'vertical'
 	});
-	
+
 	win.add(scrollView);
 
 	var b_close = Ti.UI.createButton({
@@ -87,15 +87,36 @@
 		top: 10
 	});
 
-	function sendCommand(e) {
-		sendCmd(e.source.cmd, txtfield_ip.value);
-	}
+	var txtfield_custom_cmd = Ti.UI.createTextField({
+		hintText: 'kill \IM test',
+		left: 10,
+		right: 10,
+		width: Ti.UI.FILL,
+		height: 45,
+		top: 10
+	});
+
+	var btn_custom_cmd = Ti.UI.createButton({
+		title: 'Send custom cmd',
+		left: 10,
+		right: 10,
+		width: Ti.UI.FILL,
+		height: 45,
+		top: 10
+	});
 
 	b_close.addEventListener('click', sendCommand);
 	b_shutdown.addEventListener('click', sendCommand);
 	b_shutdown_timed.addEventListener('click', sendCommand);
 	b_shutdown_cancel.addEventListener('click', sendCommand);
 	b_close_session.addEventListener('click', sendCommand);
+	b_custom_cmd.addEventListener('click', function(e) {
+		sendCommand({
+			source: {
+				cmd: txtfield_custom_cmd.getValue()
+			}
+		});
+	});
 
 	scrollView.add(b_close);
 	scrollView.add(b_shutdown);
@@ -103,6 +124,10 @@
 	scrollView.add(b_shutdown_cancel);
 	scrollView.add(b_close_session);
 
+	function sendCommand(e) {
+		sendCmd(e.source.cmd, txtfield_ip.value);
+	}
+	
 	function sendCmd(cmd, ip) {
 		var socket = Ti.Network.Socket.createTCP({
 			host: ip,
