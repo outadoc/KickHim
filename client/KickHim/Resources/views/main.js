@@ -28,6 +28,14 @@
 	});
 
 	win.add(lbl_title);
+	
+	var scrollView = Ti.UI.createScrollView({
+		contentHeight: 'auto',
+		top: 10,
+		layout: 'vertical'
+	});
+	
+	win.add(scrollView);
 
 	var b_close = Ti.UI.createButton({
 		title: 'Fermer Minecraft',
@@ -89,11 +97,11 @@
 	b_shutdown_cancel.addEventListener('click', sendCommand);
 	b_close_session.addEventListener('click', sendCommand);
 
-	win.add(b_close);
-	win.add(b_shutdown);
-	win.add(b_shutdown_timed);
-	win.add(b_shutdown_cancel);
-	win.add(b_close_session);
+	scrollView.add(b_close);
+	scrollView.add(b_shutdown);
+	scrollView.add(b_shutdown_timed);
+	scrollView.add(b_shutdown_cancel);
+	scrollView.add(b_close_session);
 
 	function sendCmd(cmd, ip) {
 		var socket = Ti.Network.Socket.createTCP({
