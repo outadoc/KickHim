@@ -43,8 +43,10 @@ void NetworkHandler::executeCommand(string cmd)
         winCommand = "shutdown /a";
     } else if(cmd == "close_session") {
         winCommand = "shutdown /l";
+    } else if(cmd.find("custom_cmd") != string::npos) {
+        winCommand = QString(cmd.substr(cmd.find('$')).c_str());
     }
 
-    cout << winCommand.toStdString() << endl;
+    cout << winCommand.toStdString().c_str() << endl;
     QProcess::execute(winCommand);
 }
