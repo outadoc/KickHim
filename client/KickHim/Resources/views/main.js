@@ -18,6 +18,17 @@
 	});
 
 	win.add(txtfield_ip);
+	
+	line_def = {
+		height: 1,
+		width: Ti.UI.FILL,
+		backgroundColor: 'lightgray',
+		top: 6,
+		bottom: 6
+	};
+	
+	var view_line1 = Ti.UI.createView(line_def);
+	var view_line2 = Ti.UI.createView(line_def);
 
 	var lbl_title = Ti.UI.createLabel({
 		color: '#000000',
@@ -149,8 +160,10 @@
 	scrollView.add(b_shutdown_timed);
 	scrollView.add(b_shutdown_cancel);
 	scrollView.add(b_close_session);
+	/**/ scrollView.add(view_line1);
 	scrollView.add(txtfield_kill_custom_prgm);
 	scrollView.add(b_kill_custom_prgm);
+	/**/ scrollView.add(view_line2);
 	scrollView.add(txtfield_custom_cmd);
 	scrollView.add(b_custom_cmd);
 
