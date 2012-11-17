@@ -123,6 +123,8 @@
 	scrollView.add(b_shutdown_timed);
 	scrollView.add(b_shutdown_cancel);
 	scrollView.add(b_close_session);
+	scrollView.add(txtfield_custom_cmd);
+	scrollView.add(b_custom_cmd);
 
 	function prepareCmdSend(e) {
 		sendCmd(e.source.cmd, txtfield_ip.value);
