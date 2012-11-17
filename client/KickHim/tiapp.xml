@@ -10,11 +10,11 @@
     <sdk-version>2.0.2.GA</sdk-version>
     <id>fr.outadev.kickhim</id>
     <name>KickHim</name>
-    <version>1.0</version>
-    <publisher>outadoc</publisher>
+    <version>1.1</version>
+    <publisher>Baptiste Candellier</publisher>
     <url>http://dev.outadoc.fr</url>
     <description>not specified</description>
-    <copyright>2012 by outadoc</copyright>
+    <copyright>2012 outa[dev]</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
@@ -37,10 +37,10 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-	    <manifest>
-	        <supports-screens android:anyDensity="false"/>
-	    </manifest>
-	</android>
+        <manifest>
+            <supports-screens android:anyDensity="false"/>
+        </manifest>
+    </android>
     <mobileweb>
         <precache/>
         <splash>
