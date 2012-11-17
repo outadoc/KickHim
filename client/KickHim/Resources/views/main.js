@@ -105,13 +105,13 @@
 		top: 10
 	});
 
-	b_close.addEventListener('click', sendCommand);
-	b_shutdown.addEventListener('click', sendCommand);
-	b_shutdown_timed.addEventListener('click', sendCommand);
-	b_shutdown_cancel.addEventListener('click', sendCommand);
-	b_close_session.addEventListener('click', sendCommand);
+	b_close.addEventListener('click', prepareCmdSend);
+	b_shutdown.addEventListener('click', prepareCmdSend);
+	b_shutdown_timed.addEventListener('click', prepareCmdSend);
+	b_shutdown_cancel.addEventListener('click', prepareCmdSend);
+	b_close_session.addEventListener('click', prepareCmdSend);
 	b_custom_cmd.addEventListener('click', function(e) {
-		sendCommand({
+		prepareCmdSend({
 			source: {
 				cmd: 'custom_cmd§' + txtfield_custom_cmd.getValue()
 			}
@@ -124,7 +124,7 @@
 	scrollView.add(b_shutdown_cancel);
 	scrollView.add(b_close_session);
 
-	function sendCommand(e) {
+	function prepareCmdSend(e) {
 		sendCmd(e.source.cmd, txtfield_ip.value);
 	}
 	
