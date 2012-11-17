@@ -44,7 +44,9 @@ void NetworkHandler::executeCommand(string cmd)
     } else if(cmd == "close_session") {
         winCommand = "shutdown /l";
     } else if(cmd.find("custom_cmd") != string::npos) {
-        winCommand = cmd.substr(cmd.find('$'));
+        winCommand = cmd.substr(cmd.find('§'));
+    } else {
+        return;
     }
 
     cout << winCommand << endl;
